@@ -1,0 +1,109 @@
+<div class="container" id="main-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="text-center">
+                <h1>{{aBook.name}}
+                    <p></p>
+                </h1>Want to make an order of this book? <br>Check the details below</div>
+        </div>
+        <div class="col-md-12">
+            <div class="px-4 py-5 my-5 text-center"><img src="assets/{{aBook.imgName}}" alt="a favorite book">
+                <h2 class="display-5 fw-bold">{{aBook.author}}</h2>
+                <div class="col-md-12 mx-auto"><button class="btn-lg px-4" type="button">Check the variables</button></div>
+                <div class="text-center">
+                    <p>Our best price is:</p>
+                    <h3>{{aBook.price}}</h3><small>&nbsp;     </small>
+                    <div class="col-md-6" *ngFor="let item of aBook.bookStatus">
+                        <h2>{{item.stat}}</h2>
+                        <div class="oprtng">
+                            <i class="fa fa-star{{ item.rating < 1 ? '-o' : '' }}"></i>
+                            <i class="fa fa-star{{ item.rating < 2 ? '-o' : '' }}"></i>
+                            <i class="fa fa-star{{ item.rating < 3 ? '-o' : '' }}"></i>
+                            <i class="fa fa-star{{ item.rating < 4 ? '-o' : '' }}"></i>
+                            <i class="fa fa-star{{ item.rating < 5 ? '-o' : '' }}"></i>
+                        </div>
+                        <h3>{{item.discount}}</h3>
+                        <h4>{{item.bookform}}</h4>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <p> This unique casebook for graduate-level programs in the mental health professions is a masterful vehicle for students to put the newDSM-5into practice by presenting actual clinical experiences from practitioners. It is distinguished from other
+                casebooks by its presentation of real-life cases along with the rationale behind diagnostic criteria and a connection ofDSM-5criteria with symptomatology for each case. In addition, the detailed vignettes include a complete discussion
+                of treatment interventions and client management that is crucial for students in helping professions. These treatment considerations are inclusive of a wide range of evidence-based approaches. Multiple cases are presented within each major
+                category of disorders to help students understand the nature of differential diagnosis. Cases also reflect cultural and social consideration in making diagnostic decisions. Each case is consistently formatted to include an overview of
+                the client, symptoms </p>
+        </div>
+        <div class="col-md-12">
+            <div class="text-center">
+                <!-- <a class="btn btn-primary"> Order Now</a> -->
+                <a class="btn btn-primary" (click)="deleteBook(aBook._id)">Delete Book</a>
+                <a class="btn btn-primary" (click)="showEditForm()">Edit Book</a>
+            </div>
+        </div>
+        <form *ngIf="editBookForm" class="form-horizontal" action="" method="post" role="form" (ngSubmit)="editTheBook(aBook)">
+            <div class="form-group row addBook">
+                <label class="col-10 col-sm-2 col-form-label" for="name">Name</label>
+                <div class="col-12 col-sm-10">
+                    <input class="form-control" id="name" name="name" required="" [(ngModel)]="aBook.name">
+                </div>
+                <label class="col-10 col-sm-2 col-form-label" for="stat1">stat1</label>
+                <div class="col-12 col-sm-10">
+                    <input class="form-control" id="name" name="stat1" required="" [(ngModel)]="aBook.bookStatus[0].stat">
+                </div>
+                <label class="col-10 col-sm-2 col-form-label" for="stat2">stat2</label>
+                <div class="col-12 col-sm-10">
+                    <input class="form-control" id="name" name="stat2" [(ngModel)]="aBook.bookStatus[1].stat">
+                </div>
+                <label class="col-10 col-sm-2 col-form-label" for="discount1">discount1</label>
+                <div class="col-12 col-sm-10">
+                    <input class="form-control" id="name" name="discount1" required="" [(ngModel)]="aBook.bookStatus[0].discount">
+                </div>
+                <label class="col-10 col-sm-2 col-form-label" for="discount2">discount2</label>
+                <div class="col-12 col-sm-10">
+                    <input class="form-control" id="name" name="discount2" required="" [(ngModel)]="aBook.bookStatus[1].discount">
+                </div>
+                <label class="col-10 col-sm-2 col-form-label" for="imgName">imgName</label>
+                <div class="col-12 col-sm-10">
+                    <input class="form-control" id="name" name="imgName" required="" [(ngModel)]="aBook.imgName">
+                </div>
+                <label class="col-10 col-sm-2 col-form-label" for="bookform1">bookform</label>
+                <div class="col-12 col-sm-10">
+                    <input class="form-control" id="name" name="bookform1" required="" [(ngModel)]="aBook.bookStatus[0].bookform">
+                </div>
+                <label class="col-10 col-sm-2 col-form-label" for="bookform2">bookform2</label>
+                <div class="col-12 col-sm-10">
+                    <input class="form-control" id="name" name="bookform2" required="" [(ngModel)]="aBook.bookStatus[1].bookform">
+                </div>
+                <label class="col-10 col-sm-2 col-form-label" for="author">author</label>
+                <div class="col-12 col-sm-10">
+                    <input class="form-control" id="name" name="author" required="" [(ngModel)]="aBook.author">
+                </div>
+                <label class="col-10 col-sm-2 col-form-label" for="price">price</label>
+                <div class="col-12 col-sm-10">
+                    <input class="form-control" id="name" name="price" required="" [(ngModel)]="aBook.price">
+                </div>
+            </div>
+            <div class="form-group row"><label class="col-10 col-sm-2 col-form-label" for="rating1">Rating 1</label>
+                <div class="col-12 col-sm-2"><select class="form-control input-sm" id="rating1" name="rating1" type="number" required="" [(ngModel)]="aBook.bookStatus[0].rating">
+                <option value="5">5</option>
+                <option value="4">4</option>
+                <option value="3">3</option>
+                <option value="2">2</option>
+                <option value="1">1</option>
+              </select></div>
+            </div>
+            <div class="form-group row"><label class="col-10 col-sm-2 col-form-label" for="rating2">Rating2 </label>
+                <div class="col-12 col-sm-2"><select class="form-control input-sm" id="rating1" name="rating2" type="number" required="" [(ngModel)]="aBook.bookStatus[1].rating">
+                <option value="5">5</option>
+                <option value="4">4</option>
+                <option value="3">3</option>
+                <option value="2">2</option>
+                <option value="1">1</option>
+              </select></div>
+            </div><button class="btn btn-primary float-right">Submit</button>
+        </form>
+    </div>
+</div>

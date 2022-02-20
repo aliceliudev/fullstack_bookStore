@@ -1,0 +1,74 @@
+<div class="container" id="main-content">
+    <div class="row banner">
+        <div class="col-12">
+            <h1>Create a new book</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-8">
+            <form class="form-horizontal" action="" method="post" role="form" (ngSubmit)="createNewBook(newBook)">
+                <div class="form-group row addBook">
+                    <label class="col-10 col-sm-2 col-form-label" for="name">Name</label>
+                    <div class="col-12 col-sm-10">
+                        <input class="form-control" id="name" name="name" required="" [(ngModel)]="newBook.name">
+                    </div>
+                    <label class="col-10 col-sm-2 col-form-label" for="stat1">stat1</label>
+                    <div class="col-12 col-sm-10">
+                        <input class="form-control" id="name" name="stat1" required="" [(ngModel)]="newBook.bookStatus[0].stat">
+                    </div>
+                    <label class="col-10 col-sm-2 col-form-label" for="stat2">stat2</label>
+                    <div class="col-12 col-sm-10">
+                        <input class="form-control" id="name" name="stat2" [(ngModel)]="newBook.bookStatus[1].stat">
+                    </div>
+                    <label class="col-10 col-sm-2 col-form-label" for="discount1">discount1</label>
+                    <div class="col-12 col-sm-10">
+                        <input class="form-control" id="name" name="discount1" required="" [(ngModel)]="newBook.bookStatus[0].discount">
+                    </div>
+                    <label class="col-10 col-sm-2 col-form-label" for="discount2">discount2</label>
+                    <div class="col-12 col-sm-10">
+                        <input class="form-control" id="name" name="discount2" required="" [(ngModel)]="newBook.bookStatus[1].discount">
+                    </div>
+                    <label class="col-10 col-sm-2 col-form-label" for="imgName">imgName</label>
+                    <div class="col-12 col-sm-10">
+                        <input class="form-control" id="name" name="imgName" required="" [(ngModel)]="newBook.imgName">
+                    </div>
+                    <label class="col-10 col-sm-2 col-form-label" for="bookform1">bookform</label>
+                    <div class="col-12 col-sm-10">
+                        <input class="form-control" id="name" name="bookform1" required="" [(ngModel)]="newBook.bookStatus[0].bookform">
+                    </div>
+                    <label class="col-10 col-sm-2 col-form-label" for="bookform2">bookform2</label>
+                    <div class="col-12 col-sm-10">
+                        <input class="form-control" id="name" name="bookform2" required="" [(ngModel)]="newBook.bookStatus[1].bookform">
+                    </div>
+                    <label class="col-10 col-sm-2 col-form-label" for="author">author</label>
+                    <div class="col-12 col-sm-10">
+                        <input class="form-control" id="name" name="author" required="" [(ngModel)]="newBook.author">
+                    </div>
+                    <label class="col-10 col-sm-2 col-form-label" for="price">price</label>
+                    <div class="col-12 col-sm-10">
+                        <input class="form-control" id="name" name="price" required="" [(ngModel)]="newBook.price">
+                    </div>
+                </div>
+                <div class="form-group row"><label class="col-10 col-sm-2 col-form-label" for="rating1">Rating 1</label>
+                    <div class="col-12 col-sm-2"><select class="form-control input-sm" id="rating1" name="rating1" type="number" required="" [(ngModel)]="newBook.bookStatus[0].rating">
+                      <option value="5">5</option>
+                      <option value="4">4</option>
+                      <option value="3">3</option>
+                      <option value="2">2</option>
+                      <option value="1">1</option>
+                    </select></div>
+                </div>
+                <div class="form-group row"><label class="col-10 col-sm-2 col-form-label" for="rating2">Rating2 </label>
+                    <div class="col-12 col-sm-2"><select class="form-control input-sm" id="rating1" name="rating2" type="number" required="" [(ngModel)]="newBook.bookStatus[1].rating">
+                      <option value="5">5</option>
+                      <option value="4">4</option>
+                      <option value="3">3</option>
+                      <option value="2">2</option>
+                      <option value="1">1</option>
+                    </select></div>
+                </div><button class="btn btn-primary float-right">Submit</button>
+            </form>
+        </div>
+        <div class="col-12 col-md-12"></div>
+    </div>
+</div>

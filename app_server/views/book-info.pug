@@ -1,0 +1,40 @@
+extends layout
+include _includes/sharedHTMLfunctions
+block content
+
+  .row  
+
+        
+        .col-md-12 
+          .text-center
+            h1= books.name 
+              p
+            | Want to make an order of this book? 
+            br 
+            |Check the details below
+        .col-md-12
+         .px-4.py-5.my-5.text-center
+           img(src=`../${books.imgName}` alt='a favorite book')
+           h2.display-5.fw-bold=books.author
+           .col-md-12.mx-auto
+               button.btn-lg.px-4(type='button') Check the variables           
+           .text-center 
+              p='Our best price is:'
+              h3=books.price 
+              small &nbsp;     
+              each status in books.bookStatus
+                .col-md-6
+                  h2= status.stat
+                  .oprtng  
+                    +outputRating(status.rating)
+                  h3= status.discount 
+                  h4= status.bookform
+          
+        .col-md-12
+           p           
+            | This unique casebook for graduate-level programs in the mental health professions is a masterful vehicle for students to put the newDSM-5into practice by presenting actual clinical experiences from practitioners. It is distinguished from other casebooks by its presentation of real-life cases along with the rationale behind diagnostic criteria and a connection ofDSM-5criteria with symptomatology for each case. In addition, the detailed vignettes include a complete discussion of treatment interventions and client management that is crucial for students in helping professions. These treatment considerations are inclusive of a wide range of evidence-based approaches. Multiple cases are presented within each major category of disorders to help students understand the nature of differential diagnosis. Cases also reflect cultural and social consideration in making diagnostic decisions.
+            | Each case is consistently formatted to include an overview of the client, symptoms                   
+        
+        .col-md-12
+            .text-center
+                     a.btn.btn-primary  Order Now 

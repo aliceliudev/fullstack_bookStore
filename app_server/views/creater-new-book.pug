@@ -1,0 +1,62 @@
+extends layout
+
+block content
+  .row.banner
+    .col-12
+      h1= title
+  .row 
+    .col-12.col-md-8 
+      form.form-horizontal(action="", method="post", role="form")
+        -if (error == "val")
+         .alert.alert-danger(role="alert") All fields are required, please try again later
+        .form-group.row.addBook
+          label.col-10.col-sm-2.col-form-label(for="name") Name
+          .col-12.col-sm-10
+            input#name.form-control(name="name", required)
+          label.col-10.col-sm-2.col-form-label(for="stat1") stat1
+          .col-12.col-sm-10
+            input#name.form-control(name="stat1", required)
+          label.col-10.col-sm-2.col-form-label(for="stat2") stat2
+          .col-12.col-sm-10
+            input#name.form-control(name="stat2")
+          label.col-10.col-sm-2.col-form-label(for="discount1") discount1
+          .col-12.col-sm-10
+            input#name.form-control(name="discount1", required)
+          label.col-10.col-sm-2.col-form-label(for="discount2") discount2
+          .col-12.col-sm-10
+            input#name.form-control(name="discount2", required)  
+          label.col-10.col-sm-2.col-form-label(for="imgName") imgName        
+          .col-12.col-sm-10
+            input#name.form-control(name="imgName", required)
+          label.col-10.col-sm-2.col-form-label(for="bookform1") bookform      
+          .col-12.col-sm-10
+            input#name.form-control(name="bookform1", required)
+          label.col-10.col-sm-2.col-form-label(for="bookform2") bookform2      
+          .col-12.col-sm-10
+            input#name.form-control(name="bookform2",required)
+          label.col-10.col-sm-2.col-form-label(for="author") author
+          .col-12.col-sm-10
+            input#name.form-control(name="author", required)
+          label.col-10.col-sm-2.col-form-label(for="price") price
+          .col-12.col-sm-10
+            input#name.form-control(name="price", required)        
+        .form-group.row
+          label.col-10.col-sm-2.col-form-label(for="rating1") Rating 1
+          .col-12.col-sm-2
+            select#rating1.form-control.input-sm(name="rating1" type='number', required)
+              option 5
+              option 4
+              option 3
+              option 2
+              option 1
+        .form-group.row
+          label.col-10.col-sm-2.col-form-label(for="rating2") Rating2 
+          .col-12.col-sm-2
+            select#rating1.form-control.input-sm(name="rating2" type='number', required)
+              option 5
+              option 4
+              option 3
+              option 2
+              option 1
+        button.btn.btn-primary.float-right Submit
+    .col-12.col-md-12
